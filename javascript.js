@@ -1,6 +1,6 @@
 var playing = false;
 var score = 0;
-var timeremaining = 5;
+var timeremaining = 60;
 var correctAnswer;
 var highscore = 0;
 
@@ -44,6 +44,7 @@ for (var i = 1; i < 5; i++) {
 }
 
 function startCountdown() {
+    timeremaining = 60;
     action = setInterval(function () {
         timeremaining--;
         document.getElementById("timeremainingvalue").innerHTML = timeremaining;
