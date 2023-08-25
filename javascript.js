@@ -23,7 +23,7 @@ document.getElementById("startreset").onclick = function () {
 for (var i = 1; i < 5; i++) {
     document.getElementById("box" + i).onclick = function () {
         if (playing) {
-            if (this.innerHTML == correctAnswer) {
+            if (parseFloat(this.innerHTML) === correctAnswer) {
                 score++;
                 document.getElementById("scorevalue").innerHTML = score;
                 hide("wrong");
@@ -48,7 +48,7 @@ function startCountdown() {
     action = setInterval(function () {
         timeremaining--;
         document.getElementById("timeremainingvalue").innerHTML = timeremaining;
-        if (timeremaining == 0) {
+        if (timeremaining === 0) {
             stopCountdown();
             show("gameOver");
             if (score > highscore) {
@@ -77,11 +77,38 @@ function show(id) {
     document.getElementById(id).style.display = "block";
 }
 
+function evaluateExpression(expression) {
+    var operators = {
+        '+': (a, b) => a + b,
+        '-': (a, b) => a - b,
+        '*': (a, b) => a * b,
+        '/': (a, b) => a / b
+    };
+
+    var tokens = expression.split(' ');
+    var stack = [];
+    var result;
+
+    tokens.forEach(token => {
+        if (operators[token]) {
+            var b = stack.pop();
+            var a = stack.pop();
+            result = operators[token](a, b);
+            stack.push(result);
+        } else {
+            stack.push(parseFloat(token));
+        }
+    });
+
+    return result;
+}
+
 function generateQA() {
     var x = 1 + Math.round(9 * Math.random());
     var y = 1 + Math.round(9 * Math.random());
     correctAnswer = x * y;
-    document.getElementById("question").innerHTML = `${x} &times; ${y}`;
+    var expression = `${x} * ${y}`;
+    document.getElementById("question").innerHTML = expression;
     var correctPosition = 1 + Math.round(3 * Math.random());
     document.getElementById("box" + correctPosition).innerHTML = correctAnswer;
 
