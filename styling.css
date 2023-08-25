@@ -225,3 +225,33 @@ html{
     display: none;
     
 }
+/* Existing styles */
+
+/* Add these new styles for responsiveness */
+@media (max-width: 600px) {
+    #container {
+        width: 90%; /* Adjust the width for smaller screens */
+    }
+
+    #score, #highscore {
+        left: 20px;
+    }
+
+    #timeremaining {
+        left: auto;
+        right: 20px;
+    }
+
+    #question {
+        font-size: 60px;
+    }
+
+    .box {
+        width: 60px;
+        height: 60px;
+        line-height: 55px;
+    }
+}
+
+/* Rest of your existing styles */
+
