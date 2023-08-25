@@ -63,7 +63,9 @@ html{
     color: #888E5F;
     padding: 11px;
     position: absolute;
-    left: 320px;
+    left:20px;
+    top:20px; 
+    
     box-shadow: 0px 4px 0px #9da853;
     -moz-box-shadow: 0px 4px 0px #9da853;
     -webkit-box-shadow: 0px 4px 0px #9da853;
