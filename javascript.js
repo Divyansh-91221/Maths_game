@@ -1,7 +1,8 @@
 var playing = false;
 var score = 0;
-var timeremaining = 60;
+var timeremaining = 5;
 var correctAnswer;
+var highscore = 0;
 
 document.getElementById("startreset").onclick = function () {
     if (playing) {
@@ -14,7 +15,7 @@ document.getElementById("startreset").onclick = function () {
         document.getElementById("timeremainingvalue").innerHTML = timeremaining;
         hide("gameOver");
         document.getElementById("startreset").innerHTML = "Reset Game";
-        startCountdown();
+        startCountdown(); // Call startCountdown only when the game starts
         generateQA();
     }
 };
@@ -49,7 +50,11 @@ function startCountdown() {
         if (timeremaining == 0) {
             stopCountdown();
             show("gameOver");
-            document.getElementById("gameOver").innerHTML = `<p>Game over!</p><p>Your score is ${score}.</p>`;
+            if (score > highscore) {
+                highscore = score;
+                document.getElementById("highscore").innerHTML = "High Score: " + highscore;
+            }
+            document.getElementById("gameOver").innerHTML = `<p>Game over!</p><p>Your score is ${score}.</p><p>High Score: ${highscore}.</p>`;
             hide("timeremaining");
             hide("correct");
             hide("wrong");
