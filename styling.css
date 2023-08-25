@@ -263,6 +263,11 @@ html{
     #choices {
         text-align: center;
     }
+
+    #startreset {
+        width: 100%; /* Adjust the width for the "Start Game" button */
+        margin-top: 10px;
+    }
 }
 
 /* Rest of your existing styles */
