@@ -230,28 +230,39 @@ html{
 /* Add these new styles for responsiveness */
 @media (max-width: 600px) {
     #container {
-        width: 90%; /* Adjust the width for smaller screens */
+        width: 100%; /* Adjust the width for smaller screens */
+        padding: 10px;
     }
 
     #score, #highscore {
-        left: 20px;
+        position: static;
+        display: block;
+        margin: 10px auto;
+        text-align: center;
     }
 
     #timeremaining {
-        left: auto;
-        right: 20px;
+        position: static;
+        display: block;
+        margin: 10px auto;
+        text-align: center;
     }
 
     #question {
-        font-size: 60px;
+        font-size: 30px;
     }
 
     .box {
         width: 60px;
         height: 60px;
         line-height: 55px;
+        font-size: 16px;
+        margin: 5px;
+    }
+
+    #choices {
+        text-align: center;
     }
 }
 
 /* Rest of your existing styles */
-
